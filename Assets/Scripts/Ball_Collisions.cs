@@ -6,21 +6,18 @@ public class Ball_Collisions : MonoBehaviour
 {
     public Ball_Movement movement;
 
-    float launchTimer = 0f;
+    public Game_Manager gameManager;
+
+    public float launchTimer = 0f;
 
     float afterCollisionTimeLimit = 10f;
 
     public bool ballHasCollided = false;
 
-    private void OnCollisionEnter(Collision collisionInfo)
+    public void Update()
     {
-        if (collisionInfo.collider.tag == "StopWall")
+        if (ballHasCollided)
         {
-            movement.enabled = false;
-        }
-        if (collisionInfo.collider.tag == "pin") 
-        {
-            ballHasCollided = true;
             if (launchTimer <= afterCollisionTimeLimit && ballHasCollided)
             {
                 launchTimer += Time.deltaTime;
@@ -28,9 +25,21 @@ public class Ball_Collisions : MonoBehaviour
             if (launchTimer > afterCollisionTimeLimit)
             {
                 ballHasCollided = false;
-                FindObjectOfType<Game_Manager>().triesLeft--;
-                FindObjectOfType<Game_Manager>().Restart();
+                gameManager.triesLeft--;
+                gameManager.Restart();
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collisionInfo)
+    {
+        if (collisionInfo.collider.tag == "StopWall")
+        {
+            movement.enabled = false;
+        }
+        if (collisionInfo.collider.tag == "Pin") 
+        {
+            ballHasCollided = true;
         }
     }
 }

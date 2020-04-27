@@ -10,7 +10,7 @@ public class Camera_Pos : MonoBehaviour
 
     public Quaternion rotationToLine;
 
-    int followLimit = -15;
+    int followLimit = -10;
 
     // Start is called before the first frame update
     void Start()

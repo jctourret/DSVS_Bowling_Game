@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ball_Movement : MonoBehaviour
 {
 
     public Rigidbody ballBody;
+    public Slider PowerSlider;
 
     bool goLeft = false;
     bool goRight = false;
@@ -14,7 +16,13 @@ public class Ball_Movement : MonoBehaviour
     float sidesForce = 500f;
 
     int force = 0;
-    int forceAdded = 10;
+    int forceAdded = 50;
+
+    private void Start()
+    {
+        PowerSlider = FindObjectOfType<Slider>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,11 +44,11 @@ public class Ball_Movement : MonoBehaviour
             {
                 goRight = false;
             }
-            if (Input.GetKey("w") && !launch)
+            if (Input.GetKeyDown("w") && !launch && force < 500)
             {
                 force += forceAdded;
             }
-            if (Input.GetKey("s") && !launch)
+            if (Input.GetKeyDown("s") && !launch && force < 500)
             {
                 force -= forceAdded;
             }
@@ -49,6 +57,7 @@ public class Ball_Movement : MonoBehaviour
                 launch = true;
             }
         }
+        PowerSlider.value = force;
     }
 
     private void FixedUpdate()
