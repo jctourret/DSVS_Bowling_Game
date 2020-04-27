@@ -922,56 +922,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3824868767274169050}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1664074749
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1664074751}
-  - component: {fileID: 1664074750}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1664074750
+--- !u!114 &1664074750 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3131194610045833086, guid: 96f00f457b438a144b0e9d0b495f3c76,
+    type: 3}
+  m_PrefabInstance: {fileID: 3131194608416558208}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664074749}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ac348db43eb624489cedef2bfcf186d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triesLeft: 3
-  pinsLeft: 10
-  ballCollision: {fileID: 1522303129}
-  numberOfTries: {fileID: 1156223327}
-  numberOfPins: {fileID: 1389116860}
-  texts: []
-  pins: []
---- !u!4 &1664074751
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664074749}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1679014789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7176030951192074368, guid: 48fbe62b9450eaa4e948bfa38e72a080,
@@ -1171,6 +1133,90 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3131194608416558208
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3131194610045833085, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833086, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: ballCollision
+      value: 
+      objectReference: {fileID: 1522303129}
+    - target: {fileID: 3131194610045833086, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: numberOfTries
+      value: 
+      objectReference: {fileID: 1156223327}
+    - target: {fileID: 3131194610045833086, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: numberOfPins
+      value: 
+      objectReference: {fileID: 1389116860}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131194610045833087, guid: 96f00f457b438a144b0e9d0b495f3c76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 96f00f457b438a144b0e9d0b495f3c76, type: 3}
 --- !u!1001 &3477629822987061721
 PrefabInstance:
   m_ObjectHideFlags: 0

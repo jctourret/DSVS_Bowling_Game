@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StopWall
   - Pin
+  - Pit
   layers:
   - Default
   - TransparentFX

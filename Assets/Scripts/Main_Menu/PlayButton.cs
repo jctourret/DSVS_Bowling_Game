@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayButton : MonoBehaviour
 {
@@ -13,5 +15,14 @@ public class PlayButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+    public void LoadGameplay()
+    {
+        SceneManager.LoadScene("Gameplay");
+    }
+    public void LoadTurret()
+    {
+        SceneManager.LoadScene("Turret");
     }
 }

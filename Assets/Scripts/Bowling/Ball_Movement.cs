@@ -13,10 +13,11 @@ public class Ball_Movement : MonoBehaviour
     bool goRight = false;
     bool launch = false;
 
-    float sidesForce = 500f;
+    float sidesForce = 50f;
 
     int force = 0;
     int forceAdded = 50;
+    int maxForce = 500;
 
     private void Start()
     {
@@ -44,11 +45,11 @@ public class Ball_Movement : MonoBehaviour
             {
                 goRight = false;
             }
-            if (Input.GetKeyDown("w") && !launch && force < 500)
+            if (Input.GetKeyDown("w") && !launch && force < maxForce)
             {
                 force += forceAdded;
             }
-            if (Input.GetKeyDown("s") && !launch && force < 500)
+            if (Input.GetKeyDown("s") && !launch && force < maxForce)
             {
                 force -= forceAdded;
             }
@@ -64,11 +65,11 @@ public class Ball_Movement : MonoBehaviour
     {
         if (goLeft)
         {
-            ballBody.AddForce(0, 0, -sidesForce * Time.deltaTime);
+            ballBody.AddForce(0, 0, -sidesForce * Time.deltaTime, ForceMode.VelocityChange);
         }
         if (goRight)
         {
-            ballBody.AddForce(0, 0, sidesForce * Time.deltaTime);
+            ballBody.AddForce(0, 0, sidesForce * Time.deltaTime, ForceMode.VelocityChange);
         }
         if (launch)
         {

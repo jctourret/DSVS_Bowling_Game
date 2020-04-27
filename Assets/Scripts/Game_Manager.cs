@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class Game_Manager : MonoBehaviour
 {
-    public int triesLeft = 3;
-
-    int totalPins = 10;
+   
+    int scoreGain = 10;
 
     private static Game_Manager instance;
     public static Game_Manager Get()
@@ -16,14 +15,17 @@ public class Game_Manager : MonoBehaviour
         return instance;
     }
 
+    public int score = 0;
+    public int triesLeft = 3;
     public int pinsLeft = 10;
+
 
     public Ball_Collisions ballCollision;
     
     public Text numberOfTries;
     public Text numberOfPins;
-    public Text[] texts = FindObjectsOfType<Text>();
-    
+    public Text[] texts;
+
     public Pins_state[] pins;
 
     // Start is called before the first frame update
@@ -31,14 +33,15 @@ public class Game_Manager : MonoBehaviour
     {
         if (instance != null)
         {
-            Destroy(gameObject);
+            Destroy(gameObject);    
             return;
         }
-        DontDestroyOnLoad(this.gameObject);
+        instance = this;
         pins = FindObjectsOfType<Pins_state>();
+        texts = FindObjectsOfType<Text>();
         ballCollision = FindObjectOfType<Ball_Collisions>();
-        numberOfTries = texts[1];
-        numberOfPins = texts[2];
+        numberOfTries = texts[0];
+        numberOfPins = texts[1];
     }
 
     // Update is called once per frame
@@ -46,19 +49,25 @@ public class Game_Manager : MonoBehaviour
     {
         checkPinsLeft();
         checkEndGame();
-        numberOfPins.text = "Pins Left:" + pinsLeft.ToString();
-        numberOfTries.text = "Tries Left:" + triesLeft.ToString();
+        numberOfPins.text = "Pins Left:" + pinsLeft;
+        numberOfTries.text = "Tries Left:" + triesLeft;
     }
 
     public void Restart()
     {
+       
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
+        DontDestroyOnLoad(gameObject);
+        pins = FindObjectsOfType<Pins_state>();
+        texts = FindObjectsOfType<Text>();
+        ballCollision = FindObjectOfType<Ball_Collisions>();
+        numberOfTries = texts[0];
+        numberOfPins = texts[1];
     }
 
     void checkEndGame()
     {
-        if (triesLeft == 0)
+        if (triesLeft == 0 && pinsLeft == 0)
         {
             SceneManager.LoadScene("Credits");
         }
@@ -68,10 +77,11 @@ public class Game_Manager : MonoBehaviour
     {
         for (int i = 0; i < pins.Length; i++)
         {
-            if (pins[i].pinIsUp && pins[i].substractedFromTotalPins)
+            if (!pins[i].pinIsUp && !pins[i].substractedFromTotalPins)
             {
                 pinsLeft -= 1;
                 pins[i].substractedFromTotalPins = true;
+                score += scoreGain;
             }
         }
     }

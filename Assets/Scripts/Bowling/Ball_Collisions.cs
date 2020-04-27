@@ -12,6 +12,10 @@ public class Ball_Collisions : MonoBehaviour
 
     float afterCollisionTimeLimit = 10f;
 
+    bool fellToPit = false;
+
+    int pitForce = 500;
+
     public bool ballHasCollided = false;
 
     public void Update()
@@ -31,11 +35,26 @@ public class Ball_Collisions : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (fellToPit)
+        {
+
+            movement.ballBody.AddForce(-pitForce * Time.deltaTime, 0, 0);
+
+        }
+    }
+
     private void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "StopWall")
         {
             movement.enabled = false;
+            ballHasCollided = true;
+        }
+        if (collisionInfo.collider.tag == "Pit")
+        {
+            fellToPit = true;
         }
         if (collisionInfo.collider.tag == "Pin") 
         {
